@@ -8,12 +8,12 @@ const port = 3000;
 
 moongose
     .connect(
+        // @TODO: Usar variáveis de ambiente para esconder credenciais
         'mongodb+srv://dbUserMongo:MgzYw!K3Fs!WtuC@cluster0.3tb88yy.mongodb.net',
     )
     .then(() => {
-        app.use(router);
         app.use(express.json());
-        app.use(express.urlencoded({ extended: true }));
+        app.use(router);
         app.listen(port, () => {
             console.log(`SERVER ON ${port}`);
         });
